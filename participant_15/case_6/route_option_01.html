@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ff3a96c48743593503e775cbdbfbea5d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;top:10px;right:10px;width:250px;background:white;border:2px solid #ccc;
+        border-radius:5px;padding:12px;font-family:Arial;z-index:9999;box-shadow:0 0 12px rgba(0,0,0,.2)">
+      <h4 style="margin:0 0 8px">Route Option 1</h4>
+      <div style="background:#f8f9fa;border-radius:3px;padding:8px;margin-bottom:8px">
+        <b>Travel time:</b> 190 min<br>
+        <b>Transfers:</b> 4<br>
+        <b>Stops:</b> 7
+      </div>
+      <b>Journey-experience scores</b>
+      <table style="font-size:12px;width:100%"><tr><td style='padding:1px 8px'>Accessibility</td><td style='padding:1px 8px;text-align:right'>1.000</td></tr><tr><td style='padding:1px 8px'>Crowdedness</td><td style='padding:1px 8px;text-align:right'>0.094</td></tr><tr><td style='padding:1px 8px'>Safety</td><td style='padding:1px 8px;text-align:right'>0.662</td></tr><tr><td style='padding:1px 8px'>Sightseeing</td><td style='padding:1px 8px;text-align:right'>0.122</td></tr></table>
+      <div style="font-size:11px;color:#666;margin-top:6px">
+        Coloured by <b>accessibility</b>:
+        <span style="color:#28a745">●</span> good
+        <span style="color:#ffc107">●</span> mid
+        <span style="color:#dc3545">●</span> poor &nbsp;|&nbsp;
+        <span style="color:red">●</span> start <span style="color:blue">●</span> end
+      </div>
+    </div>
+    
+            <div class="folium-map" id="map_ff3a96c48743593503e775cbdbfbea5d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ff3a96c48743593503e775cbdbfbea5d = L.map(
+                "map_ff3a96c48743593503e775cbdbfbea5d",
+                {
+                    center: [51.56279142857142, -0.20781614285714287],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6a59bce860304efea3499bfdf53cfe74 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6a59bce860304efea3499bfdf53cfe74.addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+            var poly_line_22e2a72df2b6996f693856a0321f7133 = L.polyline(
+                [[51.57534, -0.099375], [51.57609, -0.096154], [51.56703, -0.137785], [51.56719, -0.137895], [51.60255, -0.192173], [51.57998, -0.337875], [51.47136, -0.453456]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1f77b4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_cd4f4ab9d5eca692ee62ce4ce0401b2d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20f4c73ac12373f24dc88321f93ede6b = $(`<div id="html_20f4c73ac12373f24dc88321f93ede6b" style="width: 100.0%; height: 100.0%;">Journey path</div>`)[0];
+                popup_cd4f4ab9d5eca692ee62ce4ce0401b2d.setContent(html_20f4c73ac12373f24dc88321f93ede6b);
+            
+        
+
+        poly_line_22e2a72df2b6996f693856a0321f7133.bindPopup(popup_cd4f4ab9d5eca692ee62ce4ce0401b2d)
+        ;
+
+        
+    
+    
+            var circle_marker_7b6a5506b85dac01ab2e77c4e7a193bb = L.circleMarker(
+                [51.57534, -0.099375],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_f2e0b00e04b52c3f811adcdecca46989 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a2b4f69b126dd9b83ced15824d8178a2 = $(`<div id="html_a2b4f69b126dd9b83ced15824d8178a2" style="width: 100.0%; height: 100.0%;"><b>Endymion Road (490014023W)</b><br>490014023W<br>Accessibility: 1.000<br>Crowdedness: 0.040<br>Safety: 0.608<br>Sightseeing: 0.000</div>`)[0];
+                popup_f2e0b00e04b52c3f811adcdecca46989.setContent(html_a2b4f69b126dd9b83ced15824d8178a2);
+            
+        
+
+        circle_marker_7b6a5506b85dac01ab2e77c4e7a193bb.bindPopup(popup_f2e0b00e04b52c3f811adcdecca46989)
+        ;
+
+        
+    
+    
+            circle_marker_7b6a5506b85dac01ab2e77c4e7a193bb.bindTooltip(
+                `<div>
+                     Stop 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30e497e792941cd6f79c3bc32fb0af69 = L.circleMarker(
+                [51.57609, -0.096154],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#28a745", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_f1aa33bec34d453c40befaeacacf4f7e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0f4f9f2caf64b20ea47ccd1b581005cf = $(`<div id="html_0f4f9f2caf64b20ea47ccd1b581005cf" style="width: 100.0%; height: 100.0%;"><b>Harringay Sainsbury's (490007837HA)</b><br>490007837HA<br>Accessibility: 1.000<br>Crowdedness: 0.009<br>Safety: 0.783<br>Sightseeing: 0.000</div>`)[0];
+                popup_f1aa33bec34d453c40befaeacacf4f7e.setContent(html_0f4f9f2caf64b20ea47ccd1b581005cf);
+            
+        
+
+        circle_marker_30e497e792941cd6f79c3bc32fb0af69.bindPopup(popup_f1aa33bec34d453c40befaeacacf4f7e)
+        ;
+
+        
+    
+    
+            circle_marker_30e497e792941cd6f79c3bc32fb0af69.bindTooltip(
+                `<div>
+                     Stop 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_01172c318ecc516add29a99787e82977 = L.circleMarker(
+                [51.56703, -0.137785],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#28a745", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_237d4d0d9c25abb3c04f07d163f1d3d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bbb11b987ee7c6e36bc58da3ec528125 = $(`<div id="html_bbb11b987ee7c6e36bc58da3ec528125" style="width: 100.0%; height: 100.0%;"><b>Whittington Hosp  Magdala Ave (490014625A)</b><br>490014625A<br>Accessibility: 1.000<br>Crowdedness: 0.003<br>Safety: 0.631<br>Sightseeing: 1.000</div>`)[0];
+                popup_237d4d0d9c25abb3c04f07d163f1d3d4.setContent(html_bbb11b987ee7c6e36bc58da3ec528125);
+            
+        
+
+        circle_marker_01172c318ecc516add29a99787e82977.bindPopup(popup_237d4d0d9c25abb3c04f07d163f1d3d4)
+        ;
+
+        
+    
+    
+            circle_marker_01172c318ecc516add29a99787e82977.bindTooltip(
+                `<div>
+                     Stop 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3db6761f3aa0acdb726d1ac2a628af15 = L.circleMarker(
+                [51.56719, -0.137895],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#28a745", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_a42303775e4a7b87eda064d3ef41b5b2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7cd0dd3e7e6a943d4b509e74e05e9edb = $(`<div id="html_7cd0dd3e7e6a943d4b509e74e05e9edb" style="width: 100.0%; height: 100.0%;"><b>Whittington Hosp  Magdala Ave (490014625B)</b><br>490014625B<br>Accessibility: 1.000<br>Crowdedness: 0.007<br>Safety: 0.755<br>Sightseeing: 0.000</div>`)[0];
+                popup_a42303775e4a7b87eda064d3ef41b5b2.setContent(html_7cd0dd3e7e6a943d4b509e74e05e9edb);
+            
+        
+
+        circle_marker_3db6761f3aa0acdb726d1ac2a628af15.bindPopup(popup_a42303775e4a7b87eda064d3ef41b5b2)
+        ;
+
+        
+    
+    
+            circle_marker_3db6761f3aa0acdb726d1ac2a628af15.bindTooltip(
+                `<div>
+                     Stop 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ea613fcedf0ae0b83da7236af916f84 = L.circleMarker(
+                [51.60255, -0.192173],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#28a745", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_21dfa1b87aa4cc89f2a09bf28ae9f96a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_112dd0fc710ef47f9b433c4e870f52f0 = $(`<div id="html_112dd0fc710ef47f9b433c4e870f52f0" style="width: 100.0%; height: 100.0%;"><b>Finchley Central Station (490000081C)</b><br>490000081C<br>Accessibility: 1.000<br>Crowdedness: 0.438<br>Safety: 0.602<br>Sightseeing: 0.000</div>`)[0];
+                popup_21dfa1b87aa4cc89f2a09bf28ae9f96a.setContent(html_112dd0fc710ef47f9b433c4e870f52f0);
+            
+        
+
+        circle_marker_7ea613fcedf0ae0b83da7236af916f84.bindPopup(popup_21dfa1b87aa4cc89f2a09bf28ae9f96a)
+        ;
+
+        
+    
+    
+            circle_marker_7ea613fcedf0ae0b83da7236af916f84.bindTooltip(
+                `<div>
+                     Stop 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e786054e7cba491256f040e5170d0285 = L.circleMarker(
+                [51.57998, -0.337875],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#28a745", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_e3f5a127bf659de185aaf6ed8c537d46 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c258e35ee12da7b2359b4ad8b82d4a1e = $(`<div id="html_c258e35ee12da7b2359b4ad8b82d4a1e" style="width: 100.0%; height: 100.0%;"><b>Harrow Bus Station (490007845E)</b><br>490007845E<br>Accessibility: 1.000<br>Crowdedness: 0.521<br>Safety: 0.526<br>Sightseeing: 0.000</div>`)[0];
+                popup_e3f5a127bf659de185aaf6ed8c537d46.setContent(html_c258e35ee12da7b2359b4ad8b82d4a1e);
+            
+        
+
+        circle_marker_e786054e7cba491256f040e5170d0285.bindPopup(popup_e3f5a127bf659de185aaf6ed8c537d46)
+        ;
+
+        
+    
+    
+            circle_marker_e786054e7cba491256f040e5170d0285.bindTooltip(
+                `<div>
+                     Stop 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed8036bd58b77997d1b405d8dce17ca9 = L.circleMarker(
+                [51.47136, -0.453456],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ff3a96c48743593503e775cbdbfbea5d);
+        
+    
+        var popup_df3b71ae4ac0847247d2042914cc68e4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c4735b9a6ad78c3e96c592050f7dcab8 = $(`<div id="html_c4735b9a6ad78c3e96c592050f7dcab8" style="width: 100.0%; height: 100.0%;"><b>Heathrow Central Bus Station (4900801619)</b><br>4900801619<br>Accessibility: 1.000<br>Crowdedness: 0.008<br>Safety: 0.718<br>Sightseeing: 0.000</div>`)[0];
+                popup_df3b71ae4ac0847247d2042914cc68e4.setContent(html_c4735b9a6ad78c3e96c592050f7dcab8);
+            
+        
+
+        circle_marker_ed8036bd58b77997d1b405d8dce17ca9.bindPopup(popup_df3b71ae4ac0847247d2042914cc68e4)
+        ;
+
+        
+    
+    
+            circle_marker_ed8036bd58b77997d1b405d8dce17ca9.bindTooltip(
+                `<div>
+                     Stop 7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
